@@ -1,0 +1,310 @@
+:: StoryTitle
+333
+
+
+:: StoryData
+{
+  "ifid": "2D0874E3-83F2-42EF-A4E3-C8F177C095F7",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "START",
+  "zoom": 1
+}
+
+
+:: START {"position":"900,375","size":"100,100"}
+欢迎来到学习系统
+让我们一起来学习今天的主题：小职员?大老闆!
+
+
+<span style="font-size: 18px;">(text-colour:grey)[//本教材内容节选并改编自【时代华语第二册】（辅仁大学华语文中心）仅供教学与学习使用。//]</span>
+
+
+
+
+
+想知道[[课程目标]]可以按(link:"这里")[(goto:"课程目标")]
+
+
+
+(link:"(text-colour:magenta)[这里也可以]")[(goto:"课程目标")]                                             
+
+(link:"(text-colour:yellow)[这里也可以]")[(goto:"课程目标")]
+
+
+ (link:"(text-colour:green)[这里也可以]")[(goto:"课程目标")]
+ 
+  (link:"这里也可以")[(goto:"课程目标")]
+
+
+
+
+
+:: UI-Nav {"position":"600,300","size":"100,100"}
+<div class="navbar">(link: "课程目标")[(goto:"课程目标")] • (link: "认识生词")[(goto:"认识生词")] • (link:"游戏首页")[(goto:"选游戏")] </div>
+
+
+:: 游戏一 {"position":"600,600","size":"100,100"}
+(display:"UI-Nav")
+
+<iframe 
+  src="https://yyyy-n.github.io/20251202-matching/" 
+  width="120%" 
+  height="1000" 
+  style="border:0.5px solid #ccc;">
+</iframe>
+
+
+:: 游戏三 {"position":"600,800","size":"100,100"}
+(display:"UI-Nav")
+
+<iframe 
+  src="https://yyyy-n.github.io/20251202-matching/" 
+  width="120%" 
+  height="1000" 
+  style="border:0.5px solid #ccc;">
+</iframe>
+
+
+:: 游戏二 {"position":"600,700","size":"100,100"}
+(display:"UI-Nav")
+
+<iframe 
+  src="https://yyyy-n.github.io/20251202-matching/" 
+  width="120%" 
+  height="1000" 
+  style="border:0.5px solid #ccc;">
+</iframe>
+
+
+:: 游戏五 {"position":"600,1000","size":"100,100"}
+(display:"UI-Nav")
+
+<iframe 
+  src="https://yyyy-n.github.io/20251202-matching/" 
+  width="120%" 
+  height="1000" 
+  style="border:0.5px solid #ccc;">
+</iframe>
+
+
+:: 游戏四 {"position":"600,900","size":"100,100"}
+(display:"UI-Nav")
+
+<iframe 
+  src="https://yyyy-n.github.io/20251202-matching/" 
+  width="120%" 
+  height="1000" 
+  style="border:0.5px solid #ccc;">
+</iframe>
+
+
+:: 认识生词 {"position":"900,625","size":"100,100"}
+(display:"UI-Nav")
+
+''生词浏览''
+<div class="grid2">
+(for: each _it, ...$vocab_all)[
+  <div class="card">{(if: _it contains 'img')[
+      <img class="vocab-img" src="(print: _it's 'img')" alt="(print: _it's 'hanzi')">
+    ]}<h3>
+      <span class='hanzi-xl'>(print: _it's 'hanzi')</span>
+      (print: "<span class='hint hint-xl' data-hint='" + (_it's 'pinyin') + "'>ⓘ</span>")
+    </h3>
+    詞性：''(print: _it's 'tag')''<br>
+    意思：''(print: _it's 'def')''<br>
+    
+      ]
+
+
+:: 课程目标 {"position":"900,500","size":"100,100"}
+(display:"UI-Nav")
+
+{
+(set: $lessonID to"小职员?大老闆?")
+
+(set: $vocab_all to (array:
+(datamap:"hanzi","职员","pinyin","zhíyuán","def","staff member; employee","tag","N"),
+(datamap:"hanzi","研究所","pinyin","yánjiūsuǒ","def","graduate school","tag","N"),
+(datamap:"hanzi","研究","pinyin","yánjiū","def","research","tag","V"),
+(datamap:"hanzi","课程","pinyin","kèchéng","def","course; curriculum","tag","N"),
+(datamap:"hanzi","通知","pinyin","tōngzhī","def","to notify; notification","tag","V/N"),
+(datamap:"hanzi","广告","pinyin","guǎnggào","def","advertisement","tag","N"),
+(datamap:"hanzi","设计","pinyin","shèjì","def","to design; design","tag","V/N"),
+(datamap:"hanzi","想法","pinyin","xiǎngfǎ","def","idea; thought","tag","N"),
+(datamap:"hanzi","听力","pinyin","tīnglì","def","listening ability","tag","N"),
+(datamap:"hanzi","会话","pinyin","huìhuà","def","conversation","tag","N"),
+(datamap:"hanzi","所","pinyin","suǒ","def","place; institute; classifier for buildings","tag","N/CL"),
+(datamap:"hanzi","外语","pinyin","wàiyǔ","def","foreign language","tag","N"),
+(datamap:"hanzi","学院","pinyin","xuéyuàn","def","college; institute","tag","N"),
+(datamap:"hanzi","哲学","pinyin","zhéxué","def","philosophy","tag","N"),
+(datamap:"hanzi","专业","pinyin","zhuānyè","def","major; specialty; professional","tag","N/A"),
+(datamap:"hanzi","困难","pinyin","kùnnan","def","difficulty; difficult","tag","N/A"),
+(datamap:"hanzi","职业","pinyin","zhíyè","def","occupation; profession","tag","N"),
+(datamap:"hanzi","起","pinyin","qǐ","def","to begin","tag","V"),
+(datamap:"hanzi","助理","pinyin","zhùlǐ","def","assistant","tag","N"),
+(datamap:"hanzi","向","pinyin","xiàng","def","towards; to; direction","tag","Prep"),
+(datamap:"hanzi","贸易","pinyin","màoyì","def","trade","tag","N"),
+(datamap:"hanzi","保险","pinyin","bǎoxiǎn","def","insurance","tag","N"),
+(datamap:"hanzi","经理","pinyin","jīnglǐ","def","manager","tag","N"),
+(datamap:"hanzi","管理","pinyin","guǎnlǐ","def","to manage; management","tag","V/N"),
+(datamap:"hanzi","员工","pinyin","yuángōng","def","employee","tag","N"),
+(datamap:"hanzi","开会","pinyin","kāihuì","def","to have a meeting","tag","V"),
+(datamap:"hanzi","加班","pinyin","jiābān","def","to work overtime","tag","V"),
+(datamap:"hanzi","研究","pinyin","yánjiū","def","research; to research","tag","N/V"),
+(datamap:"hanzi","难怪","pinyin","nánguài","def","no wonder","tag","Adv"),
+(datamap:"hanzi","退休","pinyin","tuìxiū","def","to retire","tag","V"),
+))
+
+(set: $vocab_education to (array:
+(datamap:"hanzi","研究所","pinyin","yánjiūsuǒ","def","graduate school","tag","N"),
+(datamap:"hanzi","研究","pinyin","yánjiū","def","research","tag","V"),
+(datamap:"hanzi","课程","pinyin","kèchéng","def","course; curriculum","tag","N"),
+(datamap:"hanzi","通知","pinyin","tōngzhī","def","to notify; notification","tag","V/N"),
+(datamap:"hanzi","会话","pinyin","huìhuà","def","conversation","tag","N"),
+(datamap:"hanzi","听力","pinyin","tīnglì","def","listening ability","tag","N"),
+(datamap:"hanzi","外语","pinyin","wàiyǔ","def","foreign language","tag","N"),
+(datamap:"hanzi","学院","pinyin","xuéyuàn","def","college; institute","tag","N"),
+(datamap:"hanzi","哲学","pinyin","zhéxué","def","philosophy","tag","N"),
+(datamap:"hanzi","专业","pinyin","zhuānyè","def","major; specialty; professional","tag","N/A"),
+(datamap:"hanzi","所","pinyin","suǒ","def","place; institute; classifier for buildings","tag","N/CL"),
+))
+
+(set: $vocab_work to (array:
+(datamap:"hanzi","职员","pinyin","zhíyuán","def","staff member; employee","tag","N"),
+(datamap:"hanzi","职业","pinyin","zhíyè","def","occupation; profession","tag","N"),
+(datamap:"hanzi","助理","pinyin","zhùlǐ","def","assistant","tag","N"),
+(datamap:"hanzi","贸易","pinyin","màoyì","def","trade","tag","N"),
+(datamap:"hanzi","保险","pinyin","bǎoxiǎn","def","insurance","tag","N"),
+(datamap:"hanzi","经理","pinyin","jīnglǐ","def","manager","tag","N"),
+(datamap:"hanzi","管理","pinyin","guǎnlǐ","def","to manage; management","tag","V/N"),
+(datamap:"hanzi","员工","pinyin","yuángōng","def","employee","tag","N"),
+(datamap:"hanzi","开会","pinyin","kāihuì","def","to have a meeting","tag","V"),
+(datamap:"hanzi","加班","pinyin","jiābān","def","to work overtime","tag","V"),
+(datamap:"hanzi","退休","pinyin","tuìxiū","def","to retire","tag","V"),
+))
+
+(set: $vocab_abstract to (array:
+(datamap:"hanzi","想法","pinyin","xiǎngfǎ","def","idea; thought","tag","N"),
+(datamap:"hanzi","困难","pinyin","kùnnan","def","difficulty; difficult","tag","N/A"),
+(datamap:"hanzi","向","pinyin","xiàng","def","towards; to; direction","tag","Prep"),
+(datamap:"hanzi","难怪","pinyin","nánguài","def","no wonder","tag","Adv"),
+(datamap:"hanzi","起","pinyin","qǐ","def","to begin","tag","V"),
+))
+
+(set: $vocab_other2 to (array:
+(datamap:"hanzi","广告","pinyin","guǎnggào","def","advertisement","tag","N"),
+(datamap:"hanzi","设计","pinyin","shèjì","def","to design; design","tag","V/N"),
+))
+
+
+(set: $textParas to (array:
+"建置中"
+))
+(set: $progress to (datamap:"vocab",0,"pattern",0,"text",0,"practice",0))
+(set: $score to (datamap:"vocab",0,"pattern",0,"text",0,"practice",0))
+(set: $seenVocab to (dataset:))
+(set: $wrongBank to (dataset:))
+(set: $notes to "")
+
+}
+
+<span style="font-size: 36px;">(text-colour:green)[我们今天要学什麽呢?]</span>
+
+1.介绍毕业之后可以做什麽
+2.学会和朋友聊聊研究所与工作
+
+让我们从[[认识生词]]开始吧!
+
+(link:"(text-colour:magenta)[不管点哪要认识生词喔]")[(goto:"认识生词")]    
+
+
+:: 选游戏 {"position":"600,500","size":"100,100"}
+选一个游戏挑战吧!
+
+(link:"(text-colour:magenta)[等级一]")[(goto:"游戏一")]  
+(link:"(text-colour:magenta)[等级二]")[(goto:"游戏二")]  
+(link:"(text-colour:magenta)[等级三]")[(goto:"游戏三")]  
+(link:"(text-colour:magenta)[等级四]")[(goto:"游戏四")]  
+(link:"(text-colour:magenta)[等级五]")[(goto:"游戏五")]  
+
+
+:: StoryStylesheet [stylesheet]
+/* --- 生詞卡片樣式 --- */
+.card {
+  border: 1px solid #ccc;
+  padding: 0.5em 1em 1em 1em;
+  margin-bottom: 1em; /* 在 Flexbox 中，這個屬性依然有效 */
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 1.4;
+  /* (新增) 為了讓 Flexbox 寬度計算更精準 */
+  box-sizing: border-box; 
+}
+
+/* --- 控制大漢字的大小 --- */
+.hanzi-xl {
+  font-size: 1.8rem;
+  line-height: 1;
+  font-weight: 600;
+}
+
+/* --- 移除卡片中標題的預設上方邊距 --- */
+.card h3 {
+  margin-top: 0;
+}
+
+/* --- (已刪除 .grammar-card，為求最簡化) --- */
+
+/* --- 拼音提示 (Tooltip) 樣式 --- */
+.hint {
+  position: relative;
+  cursor: help;
+}
+
+.hint::after {
+  content: attr(data-hint);
+  position: absolute;
+  top: 1.5em;
+  left: -120%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 20px;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+/* 滑鼠滑過 ⓘ 時，顯示提示框 */
+.hint:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* --- 【修改】使用 Flexbox 的雙欄佈局 --- */
+.grid2 {
+  display: flex;
+  flex-wrap: wrap; /* 允許項目換行 */
+  gap: 1.5em;      /* 設定間距 */
+}
+/* 為 .grid2 中的卡片設定寬度 */
+.grid2 .card {
+  /* 每個卡片佔據 50% 寬度，再減去一半的間距，達成雙欄效果 */
+  flex-basis: calc(50% - 0.75em);
+  flex-grow: 1;
+}
+
+/* --- 單欄網格佈局 --- */
+.grid1 {
+  display: block; /* 使用簡單的區塊佈局即可 */
+}
+.grid1 .card {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
