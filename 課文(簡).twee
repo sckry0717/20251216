@@ -1,0 +1,568 @@
+:: StoryTitle
+課文 1
+
+
+:: StoryData
+{
+  "ifid": "f3fe805e-c61f-4940-9ff9-7c1c47111564",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "zoom": 1
+}
+
+
+:: CheckEnding {"position":"900,1700","size":"100,100"}
+(if: $research >= 4 and $research >= $work and $research >= $happy)[(goto: "Endingresearch")]
+(else-if: $work > $research and $work >= 3)[(goto: "Endingwork")]
+(else-if: $happy > $work and $happy >= 2)[(goto: "Endinghappy")]
+(else:)[(goto: "EndingNormal")]
+
+
+:: DiscussBrother {"position":"900,825","size":"100,100"}
+(set: $work to $work + 1)
+
+美心在咖啡厅找到了哥哥。
+
+因为很久不见，美心高兴地像哥哥挥手。
+
+美心：「你从英国回来了！留学有趣吗？」
+
+哥哥：「有趣是有趣，但留学不像上班这麽轻松......天天说外语太累了！」
+
+美心：「难怪你不念书了！我最近也在想，毕业后要上班还是念书......」
+
+哥哥：「美心的专业也是外语吧！你可以做贸易公司的翻译，或者义文老师呀！」
+
+
+[[听完之后，美心想了想。->MidChoice]]
+
+
+:: DiscussFriends {"position":"1025,825","size":"100,100"}
+(set: $happy to $happy + 1)
+
+可欣转过头。
+
+美心：「毕业之后你想做什麽？」
+
+可欣听了之后叹了一口气。
+
+可欣：「我也不知道......听说有些念广告或是服装设计的学长姊，还没毕业就当老闆了！」
+
+美心：「好厉害喔！不过，我觉得兴趣也很重要，如果工作太无聊，我一定会想换工作。」
+
+可欣：「唉，研究所的课程又多又难，我也读不了！」
+
+美心听完，开玩笑地说：「说真的！除了睡觉，我什麽都不想做！」
+
+两个人哈哈大笑。
+
+
+[[聊完之后，美心想了想。->MidChoice]]
+
+
+:: DiscussTeacher {"position":"775,825","size":"100,100"}
+(set: $research to $research + 1)
+
+美心在研究室找到了老师。
+
+老师：「喔！美心！这学期妳除了翻译课成绩比较差，听力和绘画课的成绩都不错喔！」
+
+美心听了开心地说：「谢谢老师！我还没决定上研究所还是上班，想问问老师的想法。」
+
+老师：「想当教授可以唸研究所，念了研究所，毕业后应该不难找工作。」
+
+说完，老师转过头，拿起一份研究资料，「美心，这份义文paper比较困难，有空可以看看。」
+
+[[「我最近很累，就不看了，谢谢老师。」->MidChoice]]
+
+[[「太好了！我一定看完！谢谢老师。」->MidChoice＋１]]
+
+
+:: EndingNormal {"position":"800,1800","size":"100,100"}
+(display: "TaskResult")
+(text-colour:green)[【学会坚持才会成功】]
+
+美心过了平凡的一生。
+
+她念过书，也做过工作，
+但没有一直做同一件事。
+
+她的生活很稳定，
+没有大成功，也没有大失败。
+
+有时，她会想：
+「如果当时再努力一点，人生会不会不一样？」
+
+不过，想做什么就做什么真的蛮开心的。
+
+(display: "ScoreSummary")
+
+
+:: Endinghappy {"position":"1200,1800","size":"100,100"}
+(display: "TaskResult")
+(text-colour:green)[【好希望天下有白吃的午餐】]
+
+美心过了快乐的一生。
+
+
+她没有很多钱，
+也没有很好的工作。
+
+她常常旅行，做自己喜欢的事，
+每天都很轻松。
+
+有时她会担心未来，
+但她告诉自己：
+「现在开心，比什麽都重要。」
+
+(display: "ScoreSummary")
+
+
+:: Endingresearch {"position":"600,1800","size":"100,100"}
+(display: "TaskResult")
+(text-colour:green)[【书中自有黄金屋】]
+
+
+美心选择一直念书。
+
+研究所的生活很辛苦，
+她常常熬夜，看很多书。
+
+后来，她成为老师，
+每天和学生一起学习。
+
+她发现，
+努力念书，真的改变了她的人生。
+
+(display: "ScoreSummary")
+
+
+:: Endingwork {"position":"1000,1800","size":"100,100"}
+(display: "TaskResult")
+(text-colour:green)[【钱，给我钱！】]
+
+
+美心的一生都在工作。
+
+她每天很忙，
+但是收入很稳定。
+
+有了钱以后，
+她不再为生活担心。
+
+虽然生活很累，
+但她觉得这是自己选的路。
+
+
+(display: "ScoreSummary")
+
+
+:: LifeChoice {"position":"900,1300","size":"100,100"}
+两年过去了......
+
+要坚持自己现在的想法吗？还是换一种生活呢？
+
+* [[念书吧！->LifeChoiceResearch]]
+* [[工作吧！->LifeChoiceNormal]]
+* [[当老闆吧！->LifeChoiceWork]]
+* [[休息吧！->LifeChoiceHappy]]
+
+
+:: LifeChoiceHappy {"position":"1200,1500","size":"100,100"}
+(if: $happy >= 3)[又过了一年，美心没钱了。
+她打电话给可欣，但可欣没接电话，听说她开了间公司，当上了大老闆。
+
+「可欣应该不想跟我说话了吧......」
+
+最后，(text-colour:red)[美心饿死了]。
+]\
+(else-if: $happy <= 2)[又过了一年，美心没钱了。
+她决定打电话给可欣。
+可欣:「美心！妳毕业以后，就不像大学时那麽认真了。妳早就应该工作了！」
+可欣骂了美心，生气地说：「妳下星期再打给我吧！」
+(text-style:"bold","smear","fade-in-out")[(after: 2s)[
+	[[还没走？奇蹟降临！
+->还没走？奇蹟降临！]]
+]
+]]\
+
+
+
+[[美心过了什麽样的人生？->CheckEnding]]
+
+
+
+
+:: LifeChoiceNormal {"position":"800,1500","size":"100,100"}
+(if: $work >= 3)[美心工作非常认真，虽然(text-colour:red)[没有成为老闆的勇气]，但生活的不错。她的学生都喜欢向她学习。]\
+(else-if: $work is 2)[美心(text-colour:red)[一生都做着普通的工作]。她发现，一生简简单单的当一个小职员，也可以过的很幸福。]\
+(else:)[美心很幸运，有间补习班通知她去上班。
+但......美心除了会念义大利文，什麽工作都不会做。
+(text-colour:red)[两天后就被开除了]。]
+
+
+[[看看这几年，美心过了什麽样的人生？->CheckEnding]]
+
+
+:: LifeChoiceResearch {"position":"600,1500","size":"100,100"}
+(if: $research is 6)[考试时，老师两年前给的那篇paper帮了大忙，美心出国念书，研究义大利文，因为比任何人都努力，(text-colour:red)[成为了着名的教授]。]\
+(if: $research is 5)[美心出国念书，研究义大利文，(text-colour:red)[成为了普通的教授]。
+如果再认真一点儿，说不定能够出名呢！]\
+(if: $research is 4)[美心出国念书，研究义大利文，(text-colour:red)[成为了普通的教授]。
+如果再认真一点儿，说不定能够出名呢！]\
+(else-if: $research is 3)[好像是决心不够，(text-colour:red)[美心没能成为教授]，但她成为了一位厉害的研究生。]\
+(else-if: $research is 2)[好像是决心不够，(text-colour:red)[美心没能成为教授]，但她成为了一位不错的研究生。]\
+
+(else-if: $research <= 1)[美心的考试没过，(text-colour:red)[没办法上研究所]，所有的考试题目都太困难了。]\
+
+
+[[看看这几年，美心过了什麽样的人生？->CheckEnding]]
+
+
+:: LifeChoiceWork {"position":"1000,1500","size":"100,100"}
+(set: $brave to $brave + 1)
+(if: $work >= 3)[美心除了星期日，其他日子都工作十二个小时。
+因为这样的努力，过了两年，她(text-colour:red)[成功当上了大老闆]。]\
+(else:)[美心向哥哥借了钱，开了一间补习班。
+
+可是，因为工作经验不多，两个月后，(text-colour:red)[公司倒闭了]。
+
+当大老闆真的好困难！]
+
+
+
+[[看看这几年，美心过了什麽样的人生？->CheckEnding]]
+
+
+:: MidChoice {"position":"900,1000","size":"100,100"}
+回到家，美心一个人坐在电脑前。
+ &nbsp;&nbsp;
+    &nbsp;&nbsp;
+萤幕上，
+
+一边是(text-colour:lime)[(text-style:"bold","buoy")[研究所的通知]]，
+
+一边是成为(text-colour:cyan)[(text-style:"bold","buoy")[义文老师的邀请]]。
+  &nbsp;&nbsp;
+  &nbsp;&nbsp;
+    &nbsp;&nbsp;
+''(text-style:"smear")[就这样亮在她的眼前－－]
+
+''
+* [[「我要读研究所！」->MidChoiceResearch]]
+* [[「我要当义文老师！」->MidChoiceWork]]
+* [[「我不知道！把电脑关起来！」->MidChoiceHappy]]
+
+
+:: MidChoiceHappy {"position":"1025,1125","size":"100,100"}
+(set: $happy to $happy + 1)
+
+美心的生活开心的不得了，从毕业那天起，她就天天旅行。
+
+因为对艺术和文化很有兴趣，有时候她也画一点画，但不专业，赚不了钱。
+
+她听说可欣现在是一位日语老师，不但常常开会、加班，还要做教学研究，可欣的生活不像她的这麽轻松。
+
+[[经过两年......->LifeChoice]]
+
+
+:: MidChoiceResearch {"position":"775,1125","size":"100,100"}
+(set: $research to $research + 1)
+
+研究义大利文不像念哲学、历史那麽难，
+可是没有其他专业能力，想找到好工作也是很困难。
+
+「......希望读了研究所，比较好找工作。」美心叹气。
+
+但她又想了想，对自己说:「不对！美心！妳想当教授！这个梦想是忘不了的！加油！」
+
+
+[[我要更努力！->Tired]]
+[[今天先休息吧！->LifeChoice]]
+
+
+:: MidChoiceWork {"position":"900,1125","size":"100,100"}
+(set: $work to $work + 1)
+
+台湾只有一、两所大学的外语有义大利文系，找到义文老师的工作不困难。
+
+但因为没有读研究所，美心只能当一个小职员，工作是和学生练习义文的听力和会话。
+
+她的学生不多，又得常常加班，薪水也不高。
+
+可是她的学生很喜欢她，她也觉得很开心。
+
+
+[[经过两年......->LifeChoice]]
+
+
+:: MidChoice＋１ {"position":"600,900","size":"100,100"}
+(set: $research to $research + 1)
+(set: $hardworking to $hardworking -1)
+
+美心读完了研究paper，她觉得研究所不像大学那麽容易。
+
+她感觉自己更专业了！但有点儿累。
+
+[[我得决定要做什麽了！->MidChoice]]
+
+
+:: ScoreSummary {"position":"1400,1800","size":"100,100"}
+---
+(text-colour:yellow)[**今晚的分数总结：**]
+
+**学习兴趣：** (print: $research)  
+(if: $research >= 4)[学习是你的乐趣！]\
+(else-if: $research is 3)[妳对学习有点儿兴趣，但也想做点别的事。]\
+(else-if: $research is 2)[妳以前念了点书，就这样。]\
+(else-if: $research <= 1)[妳对学习一点儿兴趣也没有。]\
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+**工作赚钱：** (print: $work)  
+(if: $work >= 3)[妳热爱工作，也喜欢钱钱，发家致富。]\
+(else-if: $work is 2)[对于工作，妳觉得「活得下去就好」，坚持自己喜欢的事比较重要。]\
+(else:)[妳没有什麽工作经验，坚持喜欢的事物的妳非常勇敢！]
+&nbsp;&nbsp;
+**快乐人生：** (print: $happy)  
+(if: $happy >= 3)[妳比谁都在乎快乐，可能上辈子过的很累，太厉害了。]\
+(else-if: $research is 1 and $happy >=2)[再怎麽喜欢快乐，都还是得读点书......]\
+(else-if: $work is 1 and $happy >= 2)[再怎麽喜欢快乐，都还是得做点事......]
+(else:)[要做事就不能休息，人生啊！]
+
+---
+
+如果你想看看别的可能，  
+可以[[重新开始这个人生->Start]]。
+
+
+:: Start {"position":"925,200","size":"100,100"}
+(text-colour:red)[(text-style:"bold")[【任务选择】]]
+大学经过四年，美心终于要毕业了，她在学校的主修是义大利文。
+除了自己，身边的朋友都找到了自己想做的事。
+
+现在，你是美心。
+美心想要什麽样的人生呢?
+
+
+* [[成为教授->StartGoalResearch]]
+* [[成为大老闆->StartGoalWork]]
+* [[什麽都不做->StartGoalHappy]]
+(set: $research to 0)
+(set: $work to 0)
+(set: $happy to 0)
+(set: $brave to 0)
+(set: $goal to "")
+<!-- 新增：記錄玩家一開始選的目標 -->
+
+
+:: StartGoalHappy {"position":"1025,500","size":"100,100"}
+(set: $goal to "happy")        <!-- 新增 -->
+(set: $happy to $happy + 1)
+
+「我想要什麽都不做！」美心
+
+  &nbsp;&nbsp;从今天起，美心的梦想就是(text-colour:yellow)[马上退休]。
+
+
+  &nbsp;&nbsp;可是，说真的，她有一点害怕。
+  &nbsp;&nbsp;她决定要去问问别人......
+  &nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;[[走吧！->discuss]]
+
+
+:: StartGoalResearch {"position":"775,500","size":"100,100"}
+(set: $goal to "research")       <!-- 新增 -->
+(set: $research to $research + 1)
+
+「我想要成为一个义大利文教授！」
+
+  &nbsp;&nbsp;从今天起，美心的梦想就是(text-colour:yellow)[去外语学院当教授]。
+
+
+  &nbsp;&nbsp;可是，说真的，当教授可能不像她想的那麽简单。
+  &nbsp;&nbsp;她决定要去问问别人......
+  &nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;[[走吧！->discuss]]
+
+
+:: StartGoalWork {"position":"900,500","size":"100,100"}
+(set: $goal to "work")         <!-- 新增 -->
+(set: $work to $work + 1)
+
+「我想要成为一个大老闆！」
+
+  &nbsp;&nbsp;从今天起，美心的梦想就是(text-colour:yellow)[当大老闆管理公司]。
+
+
+  &nbsp;&nbsp;可是，说真的，当大老闆可能不像她想的那麽简单。
+  &nbsp;&nbsp;她决定要去问问别人......
+  &nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;[[走吧！->discuss]]
+
+
+:: TaskResult {"position":"1400,1900","size":"100,100"}
+(text-colour:orange)[**任务结果：**]
+---
+(if: $goal is "research")[
+你一开始的目标是：**(text-colour:magenta)[成为教授]**。\
+(if: $research > $work and $research > $happy and $research >= 4)[最后，你成为了教授，恭喜你，**(text-colour:magenta)[任务成功]**。]
+(else-if: $research > $work and $research > $happy)[最后，虽然你还是研究生，但一定有机会成为教授的！**(text-colour:red)[任务失败]**。]
+(else:)[你根本不想念书吧！**(text-colour:red)[任务失败]**。]
+]
+
+(if: $goal is "work")[
+你一开始的目标是：**(text-colour:magenta)[成为大老闆]**。\
+(if: $work >= 3 and $brave is 1)[最后你成为了大老闆，**(text-colour:magenta)[任务成功]**。]\
+(else-if: $work > $research and $work > $happy)[虽然你还是小职员，但一定有机会成为大老闆的！**(text-colour:red)[任务失败]**。]\
+(else:)[好吧，工作对你来说太困难了，**(text-colour:red)[任务失败]**。]]
+
+(if: $goal is "happy")[
+你一开始的目标是：**(text-colour:magenta)[什麽都不做]**。\
+(if: $happy > $research and $happy > $work)[最后你真的很懒惰，**(text-colour:magenta)[任务成功]**。]\
+(else:)[最后你努力了，**(text-colour:red)[任务失败]**。]
+]
+
+---
+
+
+:: Tired {"position":"500,1100","size":"100,100"}
+(set: $research to $research + 1)
+(set: $hardworking to $hardworking -1)
+
+美心又读了三个小时，现在已经半夜一点了。
+她好想睡觉。
+
+[[不行！我要更努力！->Tired２]]
+[[好，今天先休息吧！->LifeChoice]]
+
+
+:: Tired２ {"position":"300,1200","size":"100,100"}
+(set: $research to $research + 1)
+(set: $hardworking to $hardworking -1)
+
+美心非常认真，又读了两个小时，现在已经半夜三点了。
+她有点头痛，得睡觉了。
+
+[[不可以！为了梦想！我要更努力！->Tired３]]
+[[好吧......今天先休息！->LifeChoice]]
+
+
+:: Tired３ {"position":"100,1300","size":"100,100"}
+(after: 0.5s)[碰，一声。]
+
+(after: 1.5s)|msg>[(replace: ?msg)[<span class="drunk">[美心眼前一糊......]</span>]]
+(after: 5.6s)[(replace: ?msg)[<span class="fadeOut">[美心眼前一糊......]</span>]]
+
+(after: 6s)[(replace: ?msg)[<span class="fadeIn">[(text-colour:red)[(text-style:"bold","italic","shudder")[美心倒下了。]</span>]]]]
+
+(after: 8s)[(replace: ?msg)[(text-colour:red)[(text-style:"bold","italic",)[美心倒下了。]]]]
+
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+(after: 9s)[<span class="fadeIn">[(text-style:"bold","smear")[(特别结局：人生要记得休息)]</span>]]
+
+(after: 12s)[[[重头开始->Start]]]
+
+
+:: discuss {"position":"900,700","size":"100,100"}
+美心认识的人不多，她想到......
+  &nbsp;&nbsp;
+    &nbsp;&nbsp;
+(text-colour:cyan)[向老师学习]，老师在研究室，她最熟悉研究所。
+(text-colour:lime)[向哥哥请教]，哥哥在咖啡厅，他是一间保险公司老闆的助理。
+(text-colour:orange)[和可欣讨论]，可欣坐在我旁边，她是我最好的朋友。
+  &nbsp;&nbsp;
+    &nbsp;&nbsp;
+要问谁呢？
+
+* [[走去找老师->DiscussTeacher]]
+* [[骑车去找哥哥->DiscussBrother]]
+* [[叫一下可欣->DiscussFriends]]
+
+
+:: 兑奖...... {"position":"1500,1500","size":"200,200"}
+你看了看发票。
+
+(你手上的发票号码是：(text-colour:red)[40852099])
+
+(after: 2s)[(text-colour:grey)[你打开中奖号码网页......]]
+
+(after: 3s)[//【发票兑奖网站】//]
+
+(after: 4s)[//【特别奖号码】//]
+
+(text-style:"bold","smear")[(after: 5s)[<span class="fadeIn">[4]</span>]
+(after: 5.5s)[<span class="fadeIn">[0]</span>]
+(after: 6s)[<span class="fadeIn">[8]</span>]
+(after: 7s)[<span class="fadeIn">[5]</span>]
+(after: 8s)[<span class="fadeIn">[2]</span>]
+(after: 9.5s)[<span class="fadeIn">[0]</span>]
+(after: 11s)[<span class="fadeIn">[9]</span>]]
+
+(after: 12.5s)[(text-style:"bold")[1]]
+
+(after: 13s)[[[没中！乖乖接受结局吧！->CheckEnding]]]
+
+
+:: 还没走？奇蹟降临！ {"position":"1300,1650","size":"100,100"}
+(地板上有一张发票)
+
+你知道发票可以做什麽吗？
+
+[[兑奖......]]
+
+
+:: StoryStylesheet [stylesheet]
+.drunk {
+    animation: fadeIn 1s ease-out forwards, drunkCam 8s infinite alternate;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes drunkCam {
+	0%  { filter: blur(6px); text-shadow: 0 0 0 grey; }
+	20% { filter: blur(1px); text-shadow: 8px 0 0 grey; }
+	24% { filter: blur(0px); text-shadow: 0 0 0 grey; }
+	26% { filter: blur(3px); text-shadow: 5px 0 0 grey; }
+	28% { filter: blur(5px); text-shadow: 10px 0 0 grey; }
+	30% { filter: blur(0px); text-shadow: 8px 0 0 grey; }
+	60% { filter: blur(3px); text-shadow: 5px 0 0 grey; }
+	62% { filter: blur(0px); text-shadow: 0 0 0 grey; }
+	65% { filter: blur(6px); text-shadow: 6px 0 0 grey; }
+	67% { filter: blur(3px); text-shadow: 0 0 0 grey; }
+	80% { filter: blur(0px); text-shadow: 8px 0 0 grey; }
+	85% { filter: blur(4px); text-shadow: 10px 0 0 grey; }
+	88% { filter: blur(5px); text-shadow: 12px 0 0 grey; }
+	90% { filter: blur(8px); text-shadow: 12px 0 0 grey; }
+}
+
+
+.fadeIn {
+    animation: fadeIn 2s ease-out forwards;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+.fadeOut {
+    animation: fadeOut 0.5s ease-out forwards;
+    color: white;
+}
+
+@keyframes fadeOut {
+  { filter: blur(2px); text-shadow: 4px 0 0 grey; }
+    from { opacity: 0.5; }
+    to   { opacity: 1; }
+    to   { opacity: 0; }
+}
